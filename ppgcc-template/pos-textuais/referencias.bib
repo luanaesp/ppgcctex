@@ -1,0 +1,96 @@
+%% pos-textuais/referencias.bib
+%% Use BibTeX no padrão abntex2.
+%% Compilação: pdflatex → bibtex → pdflatex → pdflatex
+%%
+%% Tipos mais comuns:
+%%   @article       → artigo em periódico
+%%   @inproceedings → artigo em anais de congresso
+%%   @book          → livro
+%%   @incollection  → capítulo de livro
+%%   @mastersthesis → dissertação de mestrado
+%%   @phdthesis     → tese de doutorado
+%%   @techreport    → relatório técnico
+%%   @misc          → outros (sites, normas etc.)
+
+%% ── EXEMPLO: artigo em periódico ────────────────────────────
+@article{exemplo2023,
+  author    = {Sobrenome, Nome and Segundo, Autor},
+  title     = {Título do Artigo em Periódico},
+  journal   = {Nome da Revista},
+  year      = {2023},
+  volume    = {10},
+  number    = {2},
+  pages     = {100--120},
+  doi       = {10.xxxx/xxxxx},
+}
+
+%% ── EXEMPLO: livro ──────────────────────────────────────────
+@book{livro2020,
+  author    = {Autor, Nome},
+  title     = {Título do Livro},
+  edition   = {2},
+  publisher = {Editora},
+  address   = {Cidade},
+  year      = {2020},
+}
+
+%% ── EXEMPLO: capítulo de livro ──────────────────────────────
+@incollection{capitulo2021,
+  author    = {Autor, Nome},
+  title     = {Título do Capítulo},
+  booktitle = {Título do Livro},
+  editor    = {Editor, Nome},
+  publisher = {Editora},
+  address   = {Cidade},
+  year      = {2021},
+  pages     = {50--75},
+}
+
+%% ── EXEMPLO: anais de conferência ───────────────────────────
+@inproceedings{conf2022,
+  author    = {Autor, Nome and Coautor, Nome},
+  title     = {Título do Artigo},
+  booktitle = {Nome do Congresso},
+  year      = {2022},
+  address   = {Cidade, País},
+  pages     = {1--10},
+}
+
+%% ── EXEMPLO: dissertação ────────────────────────────────────
+@mastersthesis{dissertacao2019,
+  author  = {Mestrando, Nome},
+  title   = {Título da Dissertação},
+  school  = {Universidade Federal Rural do Semi-Árido},
+  address = {Mossoró},
+  year    = {2019},
+  type    = {Dissertação (Mestrado em Ciência da Computação)},
+}
+
+%% ── EXEMPLO: Design Science Research ────────────────────────
+@article{Hevner2004,
+  author  = {Hevner, Alan R. and March, Salvatore T. and Park, Jinsoo and Ram, Sudha},
+  title   = {Design Science in Information Systems Research},
+  journal = {MIS Quarterly},
+  year    = {2004},
+  volume  = {28},
+  number  = {1},
+  pages   = {75--105},
+}
+
+%% ── EXEMPLO: norma ABNT ─────────────────────────────────────
+@manual{abnt14724,
+  title        = {{NBR} 14724: informação e documentação -- trabalhos acadêmicos -- apresentação},
+  author       = {{ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}},
+  organization = {ABNT},
+  address      = {Rio de Janeiro},
+  year         = {2011},
+}
+
+%% ── EXEMPLO: site / recurso online ─────────────────────────
+@misc{site2024,
+  author       = {Autor ou Organização},
+  title        = {Título da Página},
+  howpublished = {Disponível em: \url{https://www.exemplo.com}},
+  note         = {Acesso em: 01 jan. 2024},
+  year         = {2024},
+}

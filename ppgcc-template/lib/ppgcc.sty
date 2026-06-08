@@ -1,0 +1,389 @@
+%% ============================================================
+%% ppgcc.sty  –  Template PPGCC UFERSA/UERN
+%% Normas: ABNT NBR 14724:2011, NBR 6023:2018, NBR 10520:2023
+%% Versão: 2.0  (2025)
+%% Autor: Template gerado para o PPGCC UFERSA/UERN
+%% ============================================================
+
+%% ── PACOTES ESSENCIAIS ──────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}          % fontes vetoriais
+\usepackage{microtype}        % melhor justificação
+\usepackage{indentfirst}      % recuo no 1º parágrafo
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,longtable,multirow,tabularx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pdfpages}         % incluir páginas de PDF (ficha catalográfica)
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\usepackage{glossaries}       % lista de abreviaturas/siglas
+
+%% ── MARGENS (ABNT: sup 3cm, inf 2cm, esq 3cm, dir 2cm) ─────
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+
+%% ── FONTE PADRÃO ────────────────────────────────────────────
+% Arial não existe em LaTeX nativo; usa Helvetica (equivalente)
+% Se preferir Times New Roman, comente Arial e descomente times
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}   % Arial / Helvetica
+% \usepackage{mathptmx}                     % Times New Roman
+
+%% ── TAMANHO DE FONTE ────────────────────────────────────────
+% 12pt definido no \documentclass
+
+%% ── ESPAÇAMENTO ─────────────────────────────────────────────
+\setlength{\parindent}{1.25cm}   % recuo padrão ABNT
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.5}  % espaço 1,5 no texto
+
+%% ── TÍTULOS DE SEÇÕES (ABNT) ────────────────────────────────
+% Capítulo: CAIXA ALTA, negrito, fonte 12
+\renewcommand{\ABNTEXchapterfont}{\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+% Seção: Caixa alta, negrito
+\renewcommand{\ABNTEXsectionfont}{\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+% Subseção: negrito itálico
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries\itshape}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+% Subsubseção: itálico
+\renewcommand{\ABNTEXsubsubsectionfont}{\itshape}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+% Parágrafo (5º nível): sem formatação especial
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+
+%% ── ESPAÇAMENTO DOS TÍTULOS ─────────────────────────────────
+\setlength{\beforechapskip}{-\onelineskip}
+\setlength{\afterchapskip}{\onelineskip}
+\setbeforesecskip{18pt}
+\setaftersecskip{\onelineskip}
+\setbeforesubsecskip{\onelineskip}
+\setaftersubsecskip{\onelineskip}
+\setbeforesubsubsecskip{\onelineskip}
+\setaftersubsubsecskip{\onelineskip}
+
+%% ── NUMERAÇÃO DE PÁGINAS ────────────────────────────────────
+% pré-textuais: algarismos romanos, canto superior direito
+% textuais: arábicos, canto superior direito
+% (controlado por \pretextual e \textual do abntex2)
+
+%% ── LEGENDAS (ABNT: título ACIMA, fonte ABAIXO) ─────────────
+\captionsetup{
+  font=normalsize,
+  labelfont=normalsize,
+  labelsep=endash,          % "Figura 1 – Título"
+  justification=justified,
+  singlelinecheck=false,
+  skip=6pt
+}
+
+%% ── HYPERREF ─────────────────────────────────────────────────
+\hypersetup{
+  hidelinks,
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfcreator={LaTeX + abntex2 / ppgcc.sty}
+}
+
+%% ── CÓDIGO-FONTE ─────────────────────────────────────────────
+\lstset{
+  basicstyle=\small\ttfamily,
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  frame=single,
+  breaklines=true,
+  captionpos=t,
+  literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1
+    {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
+    {ñ}{{\~n}}1
+}
+
+%% ── NOMES PADRÃO (pt-BR) ────────────────────────────────────
+\addto\captionsbrazil{
+  \renewcommand{\bibname}{REFERÊNCIAS}
+  \renewcommand{\indexname}{ÍNDICE}
+  \renewcommand{\contentsname}{Sumário}
+  \renewcommand{\listfigurename}{Lista de Figuras}
+  \renewcommand{\listtablename}{Lista de Tabelas}
+  \renewcommand{\figurename}{Figura}
+  \renewcommand{\tablename}{Tabela}
+  \renewcommand{\chaptername}{Capítulo}
+}
+
+%% ── MACROS DE METADADOS DO TRABALHO ─────────────────────────
+\newcommand{\ppgccIES}[1]{\def\@ppgccIES{#1}}
+\newcommand{\ppgccIESDois}[1]{\def\@ppgccIESDois{#1}}
+\newcommand{\ppgccPrograma}[1]{\def\@ppgccPrograma{#1}}
+\newcommand{\ppgccArea}[1]{\def\@ppgccArea{#1}}
+\newcommand{\ppgccTipoTrabalho}[1]{\def\@ppgccTipoTrabalho{#1}} % dissertacao | tese
+\newcommand{\ppgccOrientador}[1]{\def\@ppgccOrientador{#1}}
+\newcommand{\ppgccOrientadorIES}[1]{\def\@ppgccOrientadorIES{#1}}
+\newcommand{\ppgccOrientadorFem}[1]{\def\@ppgccOrientadorFem{#1}} % sim | nao
+\newcommand{\ppgccCoorientador}[1]{\def\@ppgccCoorientador{#1}}
+\newcommand{\ppgccCoorientadorIES}[1]{\def\@ppgccCoorientadorIES{#1}}
+\newcommand{\ppgccCoorientadorFem}[1]{\def\@ppgccCoorientadorFem{#1}}
+\newcommand{\ppgccLocal}[1]{\def\@ppgccLocal{#1}}
+\newcommand{\ppgccAno}[1]{\def\@ppgccAno{#1}}
+\newcommand{\ppgccDataAprovacao}[1]{\def\@ppgccDataAprovacao{#1}}
+\newcommand{\ppgccEhQualificacao}[1]{\def\@ppgccEhQualificacao{#1}} % sim | nao
+
+% Membros da banca (até 5 externos)
+\newcommand{\ppgccBancaDois}[1]{\def\@ppgccBancaDois{#1}}
+\newcommand{\ppgccBancaDoisIES}[1]{\def\@ppgccBancaDoisIES{#1}}
+\newcommand{\ppgccBancaTres}[1]{\def\@ppgccBancaTres{#1}}
+\newcommand{\ppgccBancaTresIES}[1]{\def\@ppgccBancaTresIES{#1}}
+\newcommand{\ppgccBancaQuatro}[1]{\def\@ppgccBancaQuatro{#1}}
+\newcommand{\ppgccBancaQuatroIES}[1]{\def\@ppgccBancaQuatroIES{#1}}
+
+% Valores padrão (evita erros se não definidos)
+\ppgccIES{Universidade Federal Rural do Semi-Árido}
+\ppgccIESDois{Universidade Estadual do Rio Grande do Norte}
+\ppgccPrograma{Programa de Pós-Graduação em Ciência da Computação}
+\ppgccArea{Ciência da Computação}
+\ppgccTipoTrabalho{dissertacao}
+\ppgccOrientador{Prof. Dr. Nome do Orientador}
+\ppgccOrientadorIES{UFERSA}
+\ppgccOrientadorFem{nao}
+\ppgccCoorientador{}
+\ppgccCoorientadorIES{}
+\ppgccCoorientadorFem{nao}
+\ppgccLocal{Mossoró}
+\ppgccAno{\the\year}
+\ppgccDataAprovacao{}
+\ppgccEhQualificacao{nao}
+\ppgccBancaDois{Prof. Dr. Membro da Banca 2}
+\ppgccBancaDoisIES{IES do Membro 2}
+\ppgccBancaTres{Prof. Dr. Membro da Banca 3}
+\ppgccBancaTresIES{IES do Membro 3}
+\ppgccBancaQuatro{}
+\ppgccBancaQuatroIES{}
+
+%% ── ARTIGO DO ORIENTADOR ────────────────────────────────────
+\newcommand{\artigoOrientador}{%
+  \ifthenelse{\equal{\@ppgccOrientadorFem}{sim}}{Orientadora}{Orientador}%
+}
+\newcommand{\artigoCoorientador}{%
+  \ifthenelse{\equal{\@ppgccCoorientadorFem}{sim}}{Coorientadora}{Coorientador}%
+}
+
+%% ── TEXTO DE APRESENTAÇÃO NA FOLHA DE ROSTO ─────────────────
+\newcommand{\textoApresentacao}{%
+  \ifthenelse{\equal{\@ppgccTipoTrabalho}{dissertacao}}{%
+    Dissertação apresentada ao \@ppgccPrograma\ da
+    \@ppgccIES\ em associação ampla com a \@ppgccIESDois,
+    como requisito parcial para obtenção do título de
+    Mestre em \@ppgccArea.%
+  }{%
+    \ifthenelse{\equal{\@ppgccTipoTrabalho}{tese}}{%
+      Tese apresentada ao \@ppgccPrograma\ da
+      \@ppgccIES\ em associação ampla com a \@ppgccIESDois,
+      como requisito parcial para obtenção do título de
+      Doutor em \@ppgccArea.%
+    }{%
+      Trabalho de conclusão de curso apresentado ao
+      \@ppgccPrograma\ da \@ppgccIES, como requisito
+      parcial para obtenção do título de Mestre em
+      \@ppgccArea.%
+    }%
+  }%
+}
+
+%% ── CAPA ────────────────────────────────────────────────────
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    % Logos
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[height=2.2cm]{lib/UFERSA}
+    \end{minipage}%
+    \hfill%
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[height=2.2cm]{lib/UERN}
+    \end{minipage}
+    \vspace{0.3cm}
+
+    % Instituições
+    {\normalsize\bfseries\MakeUppercase{\@ppgccIES}}\\
+    {\normalsize\bfseries\MakeUppercase{\@ppgccIESDois}}\\[0.2cm]
+    {\normalsize\MakeUppercase{\@ppgccPrograma}}
+
+    \vfill
+
+    % Autor
+    {\normalsize\bfseries\MakeUppercase{\imprimirautor}}
+
+    \vfill
+
+    % Título
+    {\normalsize\bfseries\MakeUppercase{\imprimirtitulo}}
+
+    \vfill
+
+    % Local e ano
+    {\normalsize\@ppgccLocal}\\
+    {\normalsize\@ppgccAno}
+  \end{capa}%
+}
+
+%% ── FOLHA DE ROSTO ───────────────────────────────────────────
+\makeatletter
+\renewcommand{\folhaderostocontent}{%
+  \begin{center}
+    {\normalsize\bfseries\MakeUppercase{\imprimirautor}}
+
+    \vspace*{\fill}\vspace*{\fill}
+
+    {\normalsize\bfseries\MakeUppercase{\imprimirtitulo}}
+
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\@ppgccEhQualificacao}{%
+      \ifthenelse{\equal{\@ppgccEhQualificacao}{sim}}{%
+        \hspace{.45\textwidth}%
+        \begin{minipage}{.5\textwidth}%
+          \SingleSpacing%
+          {\normalsize Texto de qualificação apresentado ao
+          \@ppgccPrograma\ da \@ppgccIES,
+          como requisito parcial à obtenção do título de
+          \ifthenelse{\equal{\@ppgccTipoTrabalho}{tese}}{Doutor}{Mestre}%
+          ~em \@ppgccArea.}%
+          \vspace*{.3cm}%
+          {\normalsize \artigoOrientador: \@ppgccOrientador,
+          \@ppgccOrientadorIES.}%
+          \abntex@ifnotempty{\@ppgccCoorientador}{%
+            \vspace*{.3cm}%
+            {\normalsize \artigoCoorientador: \@ppgccCoorientador,
+            \@ppgccCoorientadorIES.}%
+          }%
+        \end{minipage}%
+      }{%
+        \hspace{.45\textwidth}%
+        \begin{minipage}{.5\textwidth}%
+          \SingleSpacing%
+          {\normalsize \textoApresentacao}%
+          \vspace*{.3cm}%
+          {\normalsize \artigoOrientador: \@ppgccOrientador,
+          \@ppgccOrientadorIES.}%
+          \abntex@ifnotempty{\@ppgccCoorientador}{%
+            \vspace*{.3cm}%
+            {\normalsize \artigoCoorientador: \@ppgccCoorientador,
+            \@ppgccCoorientadorIES.}%
+          }%
+        \end{minipage}%
+      }%
+    }
+
+    \vspace*{\fill}
+
+    {\normalsize\@ppgccLocal}\\
+    {\normalsize\@ppgccAno}
+  \end{center}%
+}
+\makeatother
+
+%% ── FOLHA DE APROVAÇÃO ───────────────────────────────────────
+\newcommand{\imprimirfolhadeaprovacao}{%
+  \begin{folhadeaprovacao}
+    \begin{center}
+      {\normalsize\bfseries\MakeUppercase{\imprimirautor}}\\[0.5cm]
+      {\normalsize\bfseries\MakeUppercase{\imprimirtitulo}}\\[0.5cm]
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+        \SingleSpacing
+        {\normalsize \textoApresentacao}
+      \end{minipage}%
+      \\[0.5cm]
+      {\normalsize Aprovada em: \@ppgccDataAprovacao}\\[0.8cm]
+      {\normalsize\bfseries BANCA EXAMINADORA}\\[0.5cm]
+    \end{center}
+    \assinatura{\@ppgccOrientador\ (\artigoOrientador)\\{\normalsize\@ppgccOrientadorIES}}
+    \assinatura{\@ppgccBancaDois\\{\normalsize\@ppgccBancaDoisIES}}
+    \assinatura{\@ppgccBancaTres\\{\normalsize\@ppgccBancaTresIES}}
+    \abntex@ifnotempty{\@ppgccBancaQuatro}{%
+      \assinatura{\@ppgccBancaQuatro\\{\normalsize\@ppgccBancaQuatroIES}}%
+    }%
+  \end{folhadeaprovacao}%
+}
+
+%% ── AMBIENTE PARA FIGURAS (legenda acima, fonte abaixo) ──────
+% Uso: \begin{figura}{Título}{fig:label}{Autor (ANO)}
+%        \includegraphics[width=.8\textwidth]{arquivo}
+%      \end{figura}
+\newenvironment{figura}[3]{%
+  \begin{figure}[htb]
+    \caption{#1}
+    \label{#2}
+    \begin{center}
+}{%
+    \end{center}
+    \legend{\small Fonte: #3}
+  \end{figure}
+}
+
+%% ── AMBIENTE PARA TABELAS (legenda acima, fonte abaixo) ──────
+% Uso: \begin{tabela}{Título}{tab:label}{Autor (ANO)}
+%        <conteúdo tabular>
+%      \end{tabela}
+\newenvironment{tabela}[3]{%
+  \begin{table}[htb]
+    \caption{#1}
+    \label{#2}
+    \begin{center}
+}{%
+    \end{center}
+    \legend{\small Fonte: #3}
+  \end{table}
+}
+
+%% ── QUADROS (sem linhas internas horizontais) ────────────────
+\newenvironment{quadro}[3]{%
+  \begin{table}[htb]
+    \caption{#1}
+    \label{#2}
+    \begin{center}
+}{%
+    \end{center}
+    \legend{\small Fonte: #3}
+  \end{table}
+}
+
+%% ── ESPAÇAMENTO SIMPLES EM CITAÇÕES LONGAS ───────────────────
+% Citação direta > 3 linhas: recuo 4cm, fonte 11, espaço simples
+% (abntex2 já faz isso com o ambiente 'citacao')
+
+%% ── ALGORITMO (nome em português) ───────────────────────────
+\SetKwFor{Para}{para}{faça}{fim para}
+\SetKwFor{Enquanto}{enquanto}{faça}{fim enquanto}
+\SetKwIF{Se}{SenaoSe}{Senao}{se}{então}{senão se}{senão}{fim se}
+\SetKwBlock{Inicio}{início}{fim}
+\renewcommand{\listalgorithmcfname}{Lista de Algoritmos}
+\renewcommand{\algorithmcfname}{Algoritmo}
+
+%% ── UTILITÁRIOS ───────────────────────────────────────────────
+% \ifnotempty{valor}{se não vazio}{se vazio}
+\newcommand{\ifnotempty}[3]{\ifthenelse{\not\equal{#1}{}}{#2}{#3}}
+
+%% ── FIM ───────────────────────────────────────────────────────

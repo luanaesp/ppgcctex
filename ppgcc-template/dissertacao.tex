@@ -1,0 +1,184 @@
+%% ============================================================
+%%  TEMPLATE PPGCC UFERSA/UERN  –  dissertacao.tex
+%%  Versão 2.0 (2025)  |  Normas ABNT NBR 14724:2011
+%% ============================================================
+%%
+%%  COMO USAR:
+%%  1. Preencha os metadados na seção "CONFIGURAÇÕES DO TRABALHO"
+%%  2. Edite os arquivos em  capitulos/   (textuais)
+%%  3. Edite os arquivos em  pre-textuais/
+%%  4. Edite pos-textuais/referencias.bib
+%%  5. Compile com:  pdflatex → bibtex → pdflatex → pdflatex
+%%     (ou use o Makefile: make)
+%%
+%% ============================================================
+
+\documentclass[
+  a4paper,           % papel A4
+  12pt,              % fonte 12pt (ABNT)
+  chapter=TITLE,     % capítulos em CAIXA ALTA
+  section=Title,     % seções com Inicial Maiúscula
+  subsection=Title,
+  oneside,           % impressão em uma face
+  english,
+  brazil             % idioma principal (deve ser o último)
+]{abntex2}
+
+%% ── CARREGA O ESTILO PPGCC ───────────────────────────────────
+\usepackage{lib/ppgcc}
+
+%% ============================================================
+%%  CONFIGURAÇÕES DO TRABALHO  ← edite aqui
+%% ============================================================
+
+%% Tipo: dissertacao | tese
+\ppgccTipoTrabalho{dissertacao}
+
+%% Coloque 'sim' durante a qualificação, 'nao' para versão final
+\ppgccEhQualificacao{nao}
+
+%% ── Informações institucionais ───────────────────────────────
+\ppgccIES{Universidade Federal Rural do Semi-Árido}
+\ppgccIESDois{Universidade Estadual do Rio Grande do Norte}
+\ppgccPrograma{Programa de Pós-Graduação em Ciência da Computação}
+\ppgccArea{Ciência da Computação}
+
+%% ── Dados do trabalho ────────────────────────────────────────
+\titulo{Título da Dissertação: Subtítulo se Houver}
+\autor{Nome Completo do Autor}
+\ppgccLocal{Mossoró}
+\ppgccAno{2025}
+\ppgccDataAprovacao{01 de janeiro de 2025}
+
+%% ── Orientação ───────────────────────────────────────────────
+\ppgccOrientador{Prof. Dr. Nome do Orientador}
+\ppgccOrientadorIES{UFERSA}
+\ppgccOrientadorFem{nao}   % 'sim' se orientadora
+
+%% Coorientador — deixe em branco ({}) para omitir
+\ppgccCoorientador{Prof. Dr. Nome do Coorientador}
+\ppgccCoorientadorIES{UERN}
+\ppgccCoorientadorFem{nao}
+
+%% ── Banca examinadora ────────────────────────────────────────
+%% Membro 2 (obrigatório)
+\ppgccBancaDois{Prof. Dr. Segundo Membro da Banca}
+\ppgccBancaDoisIES{Universidade do Segundo Membro}
+
+%% Membro 3 (obrigatório)
+\ppgccBancaTres{Prof. Dr. Terceiro Membro da Banca}
+\ppgccBancaTresIES{Universidade do Terceiro Membro}
+
+%% Membro 4 (opcional — deixe {} para omitir)
+\ppgccBancaQuatro{}
+\ppgccBancaQuatroIES{}
+
+%% ── Palavras-chave (para o resumo) ───────────────────────────
+% Defina aqui e use \@palavraschave nos arquivos de resumo
+\newcommand{\palavraschave}{Palavra-chave 1. Palavra-chave 2. Palavra-chave 3.}
+\newcommand{\keywords}{Keyword 1. Keyword 2. Keyword 3.}
+
+%% ============================================================
+%%  INÍCIO DO DOCUMENTO
+%% ============================================================
+\begin{document}
+
+%% ────────────────────────────────────────────────────────────
+%%  ELEMENTOS PRÉ-TEXTUAIS
+%% ────────────────────────────────────────────────────────────
+\pretextual
+
+%% Capa (obrigatório)
+\imprimircapa
+
+%% Folha de rosto (obrigatório)
+\imprimirfolhaderosto{}
+
+%% Ficha catalográfica — gerada pela biblioteca, inserir como PDF
+%% Descomente quando tiver o arquivo:
+% \begin{fichacatalografica}
+%   \includepdf{pre-textuais/ficha-catalografica.pdf}
+% \end{fichacatalografica}
+
+%% Errata (opcional) — descomente se necessário
+% \input{pre-textuais/errata}
+
+%% Folha de aprovação (obrigatório após defesa)
+\imprimirfolhadeaprovacao
+
+%% Dedicatória (opcional)
+\input{pre-textuais/dedicatoria}
+
+%% Agradecimentos (opcional)
+\input{pre-textuais/agradecimentos}
+
+%% Epígrafe (opcional)
+\input{pre-textuais/epigrafe}
+
+%% Resumo em português (obrigatório)
+\input{pre-textuais/resumo}
+
+%% Resumo em inglês — Abstract (obrigatório para dissertação/tese)
+\input{pre-textuais/abstract}
+
+%% Lista de figuras (opcional; recomendado se ≥ 5 figuras)
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+%% Lista de tabelas (opcional; recomendado se ≥ 5 tabelas)
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+%% Lista de abreviaturas e siglas (opcional)
+\input{pre-textuais/abreviaturas}
+
+%% Sumário (obrigatório)
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+%% ────────────────────────────────────────────────────────────
+%%  ELEMENTOS TEXTUAIS
+%% ────────────────────────────────────────────────────────────
+\textual
+
+\input{capitulos/1-introducao}
+\input{capitulos/2-fundamentacao-teorica}
+\input{capitulos/3-trabalhos-relacionados}
+\input{capitulos/4-metodologia}
+\input{capitulos/5-desenvolvimento}
+\input{capitulos/6-avaliacao}
+\input{capitulos/7-conclusao}
+
+%% ────────────────────────────────────────────────────────────
+%%  ELEMENTOS PÓS-TEXTUAIS
+%% ────────────────────────────────────────────────────────────
+\postextual
+
+%% Referências (obrigatório)
+%% Estilo ABNT com bibtex:
+\bibliographystyle{abntex2-alf}
+\bibliography{pos-textuais/referencias}
+
+%% Glossário (opcional) — descomente se necessário
+% \glossary
+
+%% Apêndices (opcional — material do próprio autor)
+\begin{apendicesenv}
+  \partapendices
+  \input{pos-textuais/apendices/apendice-a}
+  %\input{pos-textuais/apendices/apendice-b}
+\end{apendicesenv}
+
+%% Anexos (opcional — material de terceiros)
+\begin{anexosenv}
+  \partanexos
+  \input{pos-textuais/anexos/anexo-a}
+\end{anexosenv}
+
+%% Índice remissivo (opcional)
+% \printindex
+
+\end{document}
